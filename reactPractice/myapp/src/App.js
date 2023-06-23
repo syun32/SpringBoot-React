@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import useTitle from './useTitle';
+import AuthContext from './AuthContext';
+import MyComponent from './MyComponent';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useTitle(`You clicked ${count} times`);
+  const userName = 'john';
 
   return (
-    <div>
-      <p>Counter = {count}</p>
-      <button onClick={ () => setCount(count + 1)}>
-        Increment
-      </button>
-    </div>
+    <AuthContext.Provider value={userName}>
+      <MyComponent />
+    </AuthContext.Provider>
   );
 };
 
